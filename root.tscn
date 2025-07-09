@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://uryadolum3h1"]
+
+[ext_resource type="Script" path="res://Scripts/BlockMenu.gd" id="1_77d1v"]
+[ext_resource type="Script" path="res://Scripts/GridManager.gd" id="1_kopbr"]
+[ext_resource type="PackedScene" uid="uid://xsg71qp2gplu" path="res://Scenes/grid_box.tscn" id="2_bbv04"]
+[ext_resource type="Script" path="res://MouseManager.gd" id="3_423w0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l1c8x"]
+
+[node name="Root" type="Node2D"]
+
+[node name="BlockMenu" type="CanvasLayer" parent="."]
+script = ExtResource("1_77d1v")
+blocksPackedScenes = Array[PackedScene]([])
+
+[node name="Base" type="Control" parent="BlockMenu"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 755.0
+offset_right = 795.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="BlockMenu/Base"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -19.0
+offset_right = 409.0
+offset_bottom = 662.0
+color = Color(0.544974, 0.544974, 0.544974, 1)
+
+[node name="ScrollMenuBase" type="Control" parent="BlockMenu/Base"]
+anchors_preset = 0
+offset_left = 52.0
+offset_top = 42.0
+offset_right = 92.0
+offset_bottom = 82.0
+
+[node name="Button" type="Button" parent="BlockMenu/Base"]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 8.0
+offset_right = -30.0
+offset_bottom = 26.0
+scale = Vector2(1.895, 1.895)
+
+[node name="Label" type="Label" parent="BlockMenu/Base/Button"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 99.0
+offset_bottom = 25.0
+scale = Vector2(0.645, 0.645)
+text = "B"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(288, 162)
+scale = Vector2(0.75, 0.75)
+zoom = Vector2(2, 2)
+
+[node name="GridManager" type="Node2D" parent="."]
+script = ExtResource("1_kopbr")
+gridBoxSpacing = 32
+gridBoxScene = ExtResource("2_bbv04")
+
+[node name="MainGrid" type="Node2D" parent="GridManager"]
+position = Vector2(220, 32)
+
+[node name="MouseManager" type="CharacterBody2D" parent="."]
+script = ExtResource("3_423w0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseManager"]
+shape = SubResource("CircleShape2D_l1c8x")
+
+[connection signal="pressed" from="BlockMenu/Base/Button" to="BlockMenu" method="_on_button_open_pressed"]

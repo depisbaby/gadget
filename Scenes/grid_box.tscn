@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://xsg71qp2gplu"]
+
+[ext_resource type="Texture2D" uid="uid://c7j070sijmgyh" path="res://Sprite/debug.png" id="1_m206f"]
+
+[node name="GridBox" type="Sprite2D"]
+position = Vector2(1, 0)
+texture = ExtResource("1_m206f")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw2pxbtfysbsl"]
+
+[ext_resource type="Texture2D" uid="uid://c7j070sijmgyh" path="res://Sprite/debug.png" id="1_0dbw0"]
+[ext_resource type="Script" path="res://Scripts/Block.gd" id="2_ss3on"]
+
+[node name="Block" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(1, 0)
+texture = ExtResource("1_0dbw0")
+script = ExtResource("2_ss3on")
+blockName = "beta"

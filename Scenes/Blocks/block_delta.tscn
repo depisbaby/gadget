@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bapme5exkmar7"]
+
+[ext_resource type="Texture2D" uid="uid://7jcrq1h3pmjx" path="res://Sprite/debug3.png" id="1_obiq1"]
+[ext_resource type="Script" path="res://Scripts/Block.gd" id="2_a8n38"]
+
+[node name="Block" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(1, 0)
+texture = ExtResource("1_obiq1")
+script = ExtResource("2_a8n38")
+blockName = "delta"
